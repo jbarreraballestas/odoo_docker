@@ -1,0 +1,21 @@
+version: '3'
+services:
+  odoo:
+    container_name: odoo
+    image: odoo:latest
+    env_file: .env
+    depends_on:
+      - postgres
+    ports:
+      - "0.0.0.0:80:8069"
+    volumes:
+      - ./odoo_data:/var/lib/odoo
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    env_file: .env
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data/pgdata
+volumes:
+  odoo_data:
+  postgres_data:
