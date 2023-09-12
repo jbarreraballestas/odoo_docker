@@ -10,6 +10,7 @@ services:
       - "0.0.0.0:80:8069"
     volumes:
       - ./odoo_data:/var/lib/odoo
+      - ${PWD}/odoo.conf:/etc/odoo/odoo.conf
   postgres:
     container_name: postgres
     image: postgres:latest
