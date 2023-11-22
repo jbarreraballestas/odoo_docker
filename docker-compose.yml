@@ -7,10 +7,11 @@ services:
     depends_on:
       - postgres
     ports:
-      - "0.0.0.0:80:8069"
+      - "0.0.0.0:8069:8069"
     volumes:
       - ./odoo_data:/var/lib/odoo
-      - ${PWD}/odoo.conf:/etc/odoo/odoo.conf
+      - ./odoo.conf:/etc/odoo/odoo.conf
+      - ./extra-addons:/mnt/extra-addons
   postgres:
     container_name: postgres
     image: postgres:latest
